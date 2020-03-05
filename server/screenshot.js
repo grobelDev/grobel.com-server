@@ -21,7 +21,7 @@ exports.screenshot = async (req, res) => {
     args: ['--no-sandbox']
   });
   const page = await browser.newPage();
-  // await page.setViewport({ width: 800, height: 800, deviceScaleFactor: 2 });
+  await page.setViewport({ width: 800, height: 800, deviceScaleFactor: 2 });
   await page.goto(url, {
     waitUntil: 'networkidle2'
   });
