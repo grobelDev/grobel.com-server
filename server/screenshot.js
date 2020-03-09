@@ -22,8 +22,9 @@ exports.screenshot = async (req, res) => {
   });
   const page = await browser.newPage();
   await page.setViewport({ width: 800, height: 600, deviceScaleFactor: 2 });
-  await page.goto(url, {
-    waitUntil: 'networkidle2'
+  await page.goto(url);
+  await page.waitForNavigation({
+    waitUntil: 'networkidle0'
   });
   const imageBuffer = await page.screenshot();
   browser.close();
