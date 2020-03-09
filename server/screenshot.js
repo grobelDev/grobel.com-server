@@ -21,13 +21,11 @@ exports.screenshot = async (req, res) => {
     args: ['--no-sandbox']
   });
   const page = await browser.newPage();
-  await page.setViewport({ width: 800, height: 600, deviceScaleFactor: 2 });
+  await page.setViewport({ width: 800, height: 600 });
   await page.goto(url, {
     waitUntil: 'networkidle2'
   });
-  //   await page.waitForNavigation({
-  //   waitUntil: 'networkidle0',
-  // });
+
   const imageBuffer = await page.screenshot();
   browser.close();
 
